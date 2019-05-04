@@ -37,8 +37,16 @@ y = np.array(df['label'])
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-clf = LinearRegression()
-clf.fit(X_train, y_train)
+classifier_file = 'linear-regression.pickle'
+# Training the classifier
+# clf = LinearRegression()
+# clf.fit(X_train, y_train)
+# with open(classifier_file, 'wb') as ofile:
+#     pickle.dump(clf, ofile)
+
+pickle_in = open(classifier_file, 'rb')
+clf = pickle.load(pickle_in)
+
 accuracy = clf.score(X_test, y_test)
 
 forecast_set = clf.predict(X_lately)
