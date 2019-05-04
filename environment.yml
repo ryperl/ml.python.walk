@@ -2,6 +2,7 @@ name: mlp
 channels:
   - defaults
 dependencies:
+  - matplotlib
   - quandl
   - pandas
   - pip
