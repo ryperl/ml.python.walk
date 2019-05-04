@@ -1,0 +1,9 @@
+name: mlp
+channels:
+  - defaults
+dependencies:
+  - quandl
+  - pandas
+  - pip
+  - pip:
+    - sklearn
