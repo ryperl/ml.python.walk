@@ -4,11 +4,14 @@ import numpy as np
 from sklearn import preprocessing, svm
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression  
+import matplotlib
+# needed to do this on mac
+matplotlib.use('TKAgg')
 import matplotlib.pyplot as plt 
 from matplotlib import style
 import pickle
 
-style.use('ggplot')
+#style.use('TKAgg')
 
 # Linear Regression
 df = pd.read_csv('wiki_prices_googl.csv')
@@ -38,11 +41,11 @@ y = np.array(df['label'])
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 classifier_file = 'linear-regression.pickle'
-# Training the classifier
-# clf = LinearRegression()
-# clf.fit(X_train, y_train)
-# with open(classifier_file, 'wb') as ofile:
-#     pickle.dump(clf, ofile)
+# raining the classifier
+clf = LinearRegression()
+clf.fit(X_train, y_train)
+with open(classifier_file, 'wb') as ofile:
+    pickle.dump(clf, ofile)
 
 pickle_in = open(classifier_file, 'rb')
 clf = pickle.load(pickle_in)

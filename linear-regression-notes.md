@@ -13,6 +13,6 @@ $y = mx+b$
 m = slope
 b = y intercept
 
-m = $\cfrac{\overline{x} . \overline{y} - \overline{xy}}{\overline{x}^2 - \overline{x^2}}$
+m = $\cfrac{\overline{x} . \overline{y} - \overline{xy}}{\overline{(x)}^2 - \overline{x^2}}$
 
 b = $\overline{y} - m\overline{x}$
