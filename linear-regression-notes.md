@@ -1,6 +1,8 @@
 Linear Regression
 =================
 
+create a model that best fits our data
+
 bestfit line -> but is it a goodfit line :)
 correlation
 
