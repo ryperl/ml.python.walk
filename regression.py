@@ -21,19 +21,21 @@ df = df[['adj_open', 'adj_high', 'adj_low', 'adj_close', 'adj_volume']]
 df['HL_PCT'] = (df['adj_high'] - df['adj_close']) / df['adj_close'] * 100.0
 df['PCT_change'] = (df['adj_close'] - df['adj_open']) / df['adj_open'] * 100.0
 
+#            price       X           X            X
 df = df[['adj_close', 'HL_PCT', 'PCT_change', 'adj_volume']]
 
 forecast_col = 'adj_close'
 df.fillna(-99999, inplace=True)
 
-forecast_out = int(math.ceil(0.01*len(df)))
+forecast_out = int(math.ceil(0.1*len(df)))
 
 df['label'] = df[forecast_col].shift(-forecast_out)
 
 X = np.array(df.drop(['label'], 1))
 X = preprocessing.scale(X)
-X = X[:-forecast_out]
 X_lately = X[-forecast_out:]
+X = X[:-forecast_out]
+
 
 df.dropna(inplace=True)
 y = np.array(df['label'])
